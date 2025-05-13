@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 430px;
+}
+
+.start {
+  background-image: url("../../img/start-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}/*# sourceMappingURL=main.css.map */
