@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
     <script>
         function generateRandomTicketNumber(length) {
@@ -604,15 +604,15 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
 
     document.querySelector('.third-screen__btn').addEventListener('click', function() {
     // Получаем значение из поля detailed-question__field
-    const detailedQuestionField = document.querySelector('.detailed-question__field');
-    const inputText = detailedQuestionField.value;
+    // const detailedQuestionField = document.querySelector('.detailed-question__field');
+    // const inputText = detailedQuestionField.value;
 
     // Проверяем количество введенных символов
-    if (inputText.length < 12) {
-        // Если введено меньше 12 символов, ничего не делаем
-        document.querySelector('.detailed-question__warning').style.display = 'block';
-        return;
-    }
+    // if (inputText.length < 12) {
+    //     // Если введено меньше 12 символов, ничего не делаем
+    //     document.querySelector('.detailed-question__warning').style.display = 'block';
+    //     return;
+    // }
 
     // Скрываем секцию вопросов
     document.querySelector('.third-screen').style.display = 'none';
