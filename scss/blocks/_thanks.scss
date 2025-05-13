@@ -17,7 +17,7 @@
     position: relative;
     &::before {
         content: "";
-        background: url('../../img/thanks/check.svg');
+        background: url('../img/thanks/check.svg');
         width: 50px;
         height: 50px;
         display: inline-block;
@@ -58,7 +58,7 @@
     &:nth-child(2) .subscription__item-body {
         &::before {
             content: "";
-            background: url('../../img/thanks/private.svg');
+            background: url('../img/thanks/private.svg');
             width: 30px;
             height: 30px;
             display: inline-block;
@@ -69,7 +69,7 @@
     &:nth-child(3) .subscription__item-body {
         &::before {
             content: "";
-            background: url('../../img/thanks/best.svg');
+            background: url('../img/thanks/best.svg');
             width: 19.29px;
             height: 30px;
             display: inline-block;
@@ -91,7 +91,7 @@
     position: relative;
     &::before {
         content: "";
-        background: url('../../img/thanks/calendar.svg');
+        background: url('../img/thanks/calendar.svg');
         width: 25px;
         height: 25px;
         display: inline-block;
@@ -157,7 +157,7 @@
     border-radius: 15px 10px 10px 15px;
     &::after {
         content: "";
-        background: url('../../img/thanks/line.svg');
+        background: url('../img/thanks/line.svg');
         width: 2px;
         height: 100px;
         display: inline-block;
@@ -295,7 +295,7 @@
     position: relative;
     &::after {
         content: "";
-        background: url('../../img/thanks/notification.svg');
+        background: url('../img/thanks/notification.svg');
         width: 16px;
         height: 19px;
         display: inline-block;

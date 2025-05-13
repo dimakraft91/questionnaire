@@ -170,4 +170,48 @@ textarea:invalid {
     display: none!important;
 }
 
+@media screen and (max-width: 430px) {
+    .start {
+        padding: 0;
+    }
+    .start .start__container {
+        padding: 0;
+    }
+    .start__body {
+        width: 95%;
+    }
+    .wrap {
+        padding: 10px;
+    }
+    .progress-bar {
+        width: 100%;
+        gap: 26px;
+        margin: 10px auto;
+    }
+    section {
+        padding: 0px 10px;
+        height: unset;
+    }
+    section .container {
+        height: 100%;
+        max-height: 100%;
+    }
+    .progress-bar__item .progress-bar__item-stage {
+        width: 49px;
+    }
+    .questionnaire__wrap .ninth-screen .detailed-question__container {
+        max-height: 100%;
+        padding: 15px 15px 7px 15px;
+    }
+    .ninth-screen__btn {
+        margin-top: 0px;
+        padding: 10px 0;
+    }
+    .questions__item:not(:last-child) {
+        margin-bottom: 8px;
+    }
+    .progress-bar__item-passed .progress-bar__item-stage_active {
+        width: 41px;
+    }
+}
         
