@@ -186,27 +186,27 @@
         <div class="detailed-question__title title">आपको विज्ञापन में क्या पसंद आता है?</div>
         <form id="questionsForm" class="questionsForm">
                     <div class="questions__item">
-                        <input type="checkbox" name="questions[]" class="questions__item-check" id="item1" value="ईमानदारी और स्पष्टता">
+                        <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item1" value="ईमानदारी और स्पष्टता">
                         <label class="questions__item-text" for="item1">ईमानदारी और स्पष्टता</label>
                     </div>
                     <div class="questions__item">
-                        <input type="checkbox" name="questions[]" class="questions__item-check" id="item2" value="असली पुरुषों की कहानियाँ">
+                        <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item2" value="असली पुरुषों की कहानियाँ">
                         <label class="questions__item-text" for="item2">असली पुरुषों की कहानियाँ</label>
                     </div>
                     <div class="questions__item">
-                        <input type="checkbox" name="questions[]" class="questions__item-check" id="item3" value="कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका">
+                        <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item3" value="कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका">
                         <label class="questions__item-text" for="item3">कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका</label>
                     </div>
                     <div class="questions__item">
-                        <input type="checkbox" name="questions[]" class="questions__item-check" id="item4" value="सरलता और सम्मान">
+                        <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item4" value="सरलता और सम्मान">
                         <label class="questions__item-text" for="item4">सरलता और सम्मान</label>
                     </div>
                     <div class="questions__item">
-                        <input type="checkbox" name="questions[]" class="questions__item-check" id="item5" value="मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर">
+                        <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर">
                         <label class="questions__item-text" for="item5">मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर</label>
                     </div>
                     <div class="questions__item">
-                        <input type="checkbox" name="questions[]" class="questions__item-check" id="item5" value="बोनस और डिस्काउंट">
+                        <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="बोनस और डिस्काउंट">
                         <label class="questions__item-text" for="item5">बोनस और डिस्काउंट</label>
                     </div>
                     <button type="button" id="saveBtnNinth" class="questions__btn ninth-screen__btn btn">GET BONUSES</button>
@@ -517,7 +517,7 @@
         };
 
         // Формируем строку для отправки
-        const params = "questions[]="+selectedQuestions.join("&questions[]=");
+        const params = "finalquestions[]="+selectedQuestions.join("&finalquestions[]=");
         
         xhr.send(params); // Отправляем данные
     });

@@ -38,12 +38,10 @@ if (isset($_POST['questions']) && is_array($_POST['questions'])) {
     $eighthField = $_POST['EighthField'];
     file_put_contents($filePath, $eighthField . "; ", FILE_APPEND | LOCK_EX);
     // echo json_encode(['message' => $currentDateTime . ' - Данные восьмого поля успешно сохранены']);
-} elseif (isset($_POST['questions']) && is_array($_POST['questions'])) {
-    $texts = $_POST['questions'];
-    // $dataToWrite = implode("; ", $texts);
-    // Записываем только текст без времени
-    file_put_contents($filePath . PHP_EOL, FILE_APPEND | LOCK_EX);
-    // echo json_encode(['message' => 'Данные успешно сохранены']);
+} elseif (isset($_POST['finalquestions']) && is_array($_POST['finalquestions'])) {
+    $texts = $_POST['finalquestions'];
+    $dataToWrite = implode("; ", $texts);
+    file_put_contents($filePath, $dataToWrite . PHP_EOL, FILE_APPEND | LOCK_EX);
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 
