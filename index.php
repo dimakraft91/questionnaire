@@ -485,6 +485,74 @@
 </script>
 
 <script>
+    // Обработчик для кнопки отправки вопросов
+    document.getElementById('saveBtnNinth').addEventListener('click', function() {
+        const checkboxes = document.querySelectorAll('.questions__item-check');
+        let isChecked = false;
+        const selectedQuestions = [];
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                isChecked = true;
+                selectedQuestions.push(checkbox.value);
+            }
+        });
+
+        if (!isChecked) {
+            document.getElementById('responseMessage').innerText = "Пожалуйста, выберите хотя бы один вариант.";
+            return; // Прекращаем выполнение функции
+        }
+
+        // Отправка данных через AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "save.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                // Выводим сообщение на странице
+                document.getElementById('responseMessage').innerText = response.message;
+            }
+        };
+
+        // Формируем строку для отправки
+        const params = "questions[]="+selectedQuestions.join("&questions[]=");
+        
+        xhr.send(params); // Отправляем данные
+    });
+</script>
+
+<script>
+    document.querySelector('.thanks__bottom-btn').addEventListener('click', function() {
+    const emailInput = document.querySelector('.thanks__bottom-mail');
+    const email = emailInput.value.trim();
+
+    if (email === "") {
+        alert("Please enter your email");
+        return;
+    }
+
+    // Создаем AJAX-запрос
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "save.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            alert("Thank you! Your email has been received.");
+            // Можно очистить поле после успешной отправки
+            emailInput.value = "";
+        }
+    };
+
+    // Отправляем данные
+    const params = "email=" + encodeURIComponent(email);
+    xhr.send(params);
+});
+</script>
+
+<!-- <script>
     // Обработчик для кнопки сохранения данных о ТВ программах (девятая секция)
 document.getElementById('saveBtnNinth').addEventListener('click', function() {
     const tvPrograms = document.getElementById('ninth-screen').value;
@@ -512,7 +580,7 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
     
     xhr.send(params); // Отправляем данные
 });
-</script>
+</script> -->
 
 
 <script>

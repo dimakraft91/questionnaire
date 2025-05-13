@@ -37,12 +37,27 @@ if (isset($_POST['questions']) && is_array($_POST['questions'])) {
 } elseif (isset($_POST['EighthField'])) {
     $eighthField = $_POST['EighthField'];
     file_put_contents($filePath, $eighthField . "; ", FILE_APPEND | LOCK_EX);
-    echo json_encode(['message' => $currentDateTime . ' - Данные восьмого поля успешно сохранены']);
-} elseif (isset($_POST['ninthScreen'])) {
-    $tvProgramTextNinth = $_POST['ninthScreen'];
-    file_put_contents($filePath, $tvProgramTextNinth . "; ", FILE_APPEND | LOCK_EX);
-    echo json_encode(['message' => $currentDateTime . ' - Данные о ТВ программах из девятой секции успешно сохранены']);
+    // echo json_encode(['message' => $currentDateTime . ' - Данные восьмого поля успешно сохранены']);
+} elseif (isset($_POST['questions']) && is_array($_POST['questions'])) {
+    $texts = $_POST['questions'];
+    // $dataToWrite = implode("; ", $texts);
+    // Записываем только текст без времени
+    file_put_contents($filePath . PHP_EOL, FILE_APPEND | LOCK_EX);
+    // echo json_encode(['message' => 'Данные успешно сохранены']);
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Например, сохранить в файл или базу данных
+        $filePath = 'output.txt'; // путь к файлу для хранения писем
+        file_put_contents($filePath, $email . PHP_EOL, FILE_APPEND | LOCK_EX);
+
+        echo json_encode(['status' => 'success', 'message' => 'Email received']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Invalid email']);
+    }
 } else {
-   echo json_encode(['message' => 'Нет данных для сохранения']);
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request']);
 }
 ?>
+
