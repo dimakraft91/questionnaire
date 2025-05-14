@@ -137,7 +137,7 @@
             <textarea name="tvPrograms" id="tvProgramsThird" class="detailed-question__field" placeholder="वो टीवी प्रोग्राम या शो लिखें, जो आप सबसे ज़्यादा देखते हैं" minlength="12"></textarea>
             <div class="detailed-question__warning">Minimum 12 characters</div>
             </div>
-            <button id="saveBtnThird" class="detailed-question__btn third-screen__btn btn">Next question</button>
+            <button id="saveBtnThird" class="detailed-question__btn btn">Next question</button>
         </div>
     </section>
 
@@ -856,7 +856,92 @@ updateButtonClass();
                 }
             }
         });
-        </script>
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.getElementById('tvProgramsThird');
+        const saveBtn = document.getElementById('saveBtnThird');
+    
+        // Функция для проверки длины текста и обновления класса кнопки
+        function checkTextLength() {
+            if (textarea.value.trim().length >= 12) {
+                if (!saveBtn.classList.contains('third-screen__btn-check')) {
+                    saveBtn.classList.add('third-screen__btn-check');
+                }
+            } else {
+                if (saveBtn.classList.contains('third-screen__btn-check')) {
+                    saveBtn.classList.remove('third-screen__btn-check');
+                }
+            }
+        }
+    
+        // Обработчик для textarea
+        textarea.addEventListener('input', checkTextLength);
+    
+        // Изначально проверяем состояние при загрузке
+        checkTextLength();
+    
+        // Делегирование: навешиваем один обработчик на весь документ
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.third-screen__btn-check')) {
+                updateProgressBar();
+            }
+        });
+    
+        // Ваша функция обновления прогресс-бара
+        const progressBarItems = document.querySelectorAll('.progress-bar__item');
+        let currentIndex = 0;
+    
+        function updateProgressBar() {
+            if (currentIndex < progressBarItems.length) {
+                // Убираем активный класс у текущего элемента и добавляем passed
+                progressBarItems[currentIndex].classList.remove('progress-bar__item-active');
+                progressBarItems[currentIndex].classList.add('progress-bar__item-passed');
+    
+                // Обновляем stage внутри элемента
+                const stageElement = progressBarItems[currentIndex].querySelector('.progress-bar__item-stage');
+                if (stageElement) {
+                    stageElement.classList.remove('progress-bar__item-stage');
+                    stageElement.classList.add('progress-bar__item-stage_active');
+                }
+    
+                currentIndex++;
+    
+                // Активируем следующий элемент, если есть
+                if (currentIndex < progressBarItems.length) {
+                    progressBarItems[currentIndex].classList.add('progress-bar__item-active');
+                } else {
+                    // Можно добавить действия по завершению, например:
+                    // alert("Вы завершили опрос!");
+                    // или отключить кнопку и т.д.
+                }
+            }
+        }
+    });
+    </script>
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.getElementById('tvProgramsThird');
+        const saveBtn = document.getElementById('saveBtnThird');
+    
+        // Функция для проверки длины текста и обновления класса кнопки
+        function checkTextLength() {
+            if (textarea.value.trim().length >= 12) {
+                saveBtn.classList.add('third-screen__btn-check');
+            } else {
+                saveBtn.classList.remove('third-screen__btn-check');
+            }
+        }
+    
+        // Обработчик события input для отслеживания изменений в textarea
+        textarea.addEventListener('input', checkTextLength);
+    
+        // Изначально проверяем состояние при загрузке страницы
+        checkTextLength();
+    });
+    </script> -->
 
 
     <!-- <script>
