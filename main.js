@@ -1,0 +1,78 @@
+
+    const progressBarItems = document.querySelectorAll('.progress-bar__item');
+    // const submitBtn = document.querySelector('.btn'); // Изменено на выбор по классу
+    // const saveBtn = document.getElementById('saveBtn'); // Получаем кнопку по ID
+    // const saveBtnThird = document.getElementById('saveBtnThird'); // Получаем кнопку по ID
+    // const saveBtnFourth = document.getElementById('saveBtnFourth'); // Получаем кнопку по ID
+    // const saveBtnFifth = document.getElementById('saveBtnFifth'); // Получаем кнопку по ID
+    // const saveBtnSixth = document.getElementById('saveBtnSixth'); // Получаем кнопку по ID
+    // const saveBtnSeventh = document.getElementById('saveBtnSeventh'); // Получаем кнопку по ID
+    // const saveBtnEighth = document.getElementById('saveBtnEighth'); // Получаем кнопку по ID
+    // const detailedQuestionField = document.querySelector('.detailed-question__field');
+    // const inputText = detailedQuestionField.value;
+
+    let currentIndex = 0;
+
+    function updateProgressBar() {
+        // Проверяем, что текущий индекс меньше количества элементов
+        if (currentIndex < progressBarItems.length) {
+            // Убираем класс active у текущего элемента и добавляем passed
+            progressBarItems[currentIndex].classList.remove('progress-bar__item-active');
+            progressBarItems[currentIndex].classList.add('progress-bar__item-passed');
+
+            // Удаляем класс у элемента stage и добавляем новый класс
+            const stageElement = progressBarItems[currentIndex].querySelector('.progress-bar__item-stage');
+            if (stageElement) {
+                stageElement.classList.remove('progress-bar__item-stage');
+                stageElement.classList.add('progress-bar__item-stage_active');
+            }
+
+            // Переходим к следующему элементу
+            currentIndex++;
+
+            // Проверяем, есть ли следующий элемент
+            if (currentIndex < progressBarItems.length) {
+                // Добавляем класс active к следующему элементу
+                progressBarItems[currentIndex].classList.add('progress-bar__item-active');
+            } else {
+                // Если это последний элемент, можно скрыть кнопку или сделать что-то еще
+                // submitBtn.disabled = true; // Пример: отключаем кнопку после последнего вопроса
+                // saveBtn.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                // saveBtnThird.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                // saveBtnFourth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                // saveBtnFifth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                // saveBtnSixth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                // saveBtnSeventh.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                // saveBtnEighth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+
+                
+                
+                // alert("Вы завершили опрос!");
+            }
+        }
+    }
+
+    // Обработчик события для кнопки submit
+    submitBtn.addEventListener('click', updateProgressBar);
+
+    // Обработчик события для кнопки save
+    // saveBtn.addEventListener('click', updateProgressBar);
+
+    // if (inputText.length >= 12) {
+    //     saveBtnThird.addEventListener('click', updateProgressBar);     
+    // }
+    // else {
+    //     return;
+    // }
+
+    // saveBtnThird.addEventListener('click', updateProgressBar);
+
+    // saveBtnFourth.addEventListener('click', updateProgressBar);
+
+    // saveBtnFifth.addEventListener('click', updateProgressBar);
+
+    // saveBtnSixth.addEventListener('click', updateProgressBar);
+
+    // saveBtnSeventh.addEventListener('click', updateProgressBar);
+
+    // saveBtnEighth.addEventListener('click', updateProgressBar);
