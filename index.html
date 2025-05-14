@@ -137,7 +137,7 @@
             <textarea name="tvPrograms" id="tvProgramsThird" class="detailed-question__field" placeholder="वो टीवी प्रोग्राम या शो लिखें, जो आप सबसे ज़्यादा देखते हैं" minlength="12"></textarea>
             <div class="detailed-question__warning">Minimum 12 characters</div>
             </div>
-            <button id="saveBtnThird" class="detailed-question__btn btn">Next question</button>
+            <button id="saveBtnThird" class="detailed-question__btn third-screen__btn btn">Next question</button>
         </div>
     </section>
 
@@ -642,15 +642,15 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
 
         document.querySelector('.third-screen__btn').addEventListener('click', function() {
         // Получаем значение из поля detailed-question__field
-        // const detailedQuestionField = document.querySelector('.detailed-question__field');
-        // const inputText = detailedQuestionField.value;
+        const detailedQuestionField = document.querySelector('.detailed-question__field');
+        const inputText = detailedQuestionField.value;
 
         // Проверяем количество введенных символов
-        // if (inputText.length < 12) {
-        //     // Если введено меньше 12 символов, ничего не делаем
-        //     document.querySelector('.detailed-question__warning').style.display = 'block';
-        //     return;
-        // }
+        if (inputText.length < 12) {
+            // Если введено меньше 12 символов, ничего не делаем
+            // document.querySelector('.detailed-question__warning').style.display = 'block';
+            return;
+        }
 
         // Скрываем секцию вопросов
         document.querySelector('.third-screen').style.display = 'none';
@@ -661,6 +661,15 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
 
         // Обработчик события для кнопки по классу
         document.querySelector('.fourth-screen__btn').addEventListener('click', function() {
+            const detailedQuestionField = document.querySelector('.detailed-question__field');
+        const inputText = detailedQuestionField.value;
+
+        // Проверяем количество введенных символов
+        if (inputText.length < 12) {
+            // Если введено меньше 12 символов, ничего не делаем
+            // document.querySelector('.detailed-question__warning').style.display = 'block';
+            return;
+        }
             // Скрываем секцию вопросов
             document.querySelector('.fourth-screen').style.display = 'none';
             
@@ -860,64 +869,86 @@ updateButtonClass();
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const textarea = document.getElementById('tvProgramsThird');
-        const saveBtn = document.getElementById('saveBtnThird');
     
-        // Функция для проверки длины текста и обновления класса кнопки
-        function checkTextLength() {
+        const state = {
+            third: { index: 0 },
+            fourth: { index: 0 }
+        };
+    
+        // Для третьего блока
+        const textareaThird = document.getElementById('tvProgramsThird');
+        const saveBtnThird = document.getElementById('saveBtnThird');
+        const progressBarItemsThird = document.querySelectorAll('.progress-bar__item');
+    
+        // Для четвертого блока
+        const textareaFourth = document.getElementById('tvProgramsFourth');
+        const saveBtnFourth = document.getElementById('saveBtnFourth');
+        const progressBarItemsFourth = document.querySelectorAll('.progress-bar__item');
+    
+        function checkTextLength(thirdOrFourth) {
+            let textarea, saveBtn, classCheck, progressItems, indexObj;
+            if (thirdOrFourth === 'third') {
+                textarea = textareaThird;
+                saveBtn = saveBtnThird;
+                classCheck = 'third-screen__btn-check';
+                progressItems = progressBarItemsThird;
+                indexObj = state.third;
+            } else {
+                textarea = textareaFourth;
+                saveBtn = saveBtnFourth;
+                classCheck = 'fourth-screen__btn-check';
+                progressItems = progressBarItemsFour;
+                indexObj = state.fourth;
+            }
+    
             if (textarea.value.trim().length >= 12) {
-                if (!saveBtn.classList.contains('third-screen__btn-check')) {
-                    saveBtn.classList.add('third-screen__btn-check');
+                if (!saveBtn.classList.contains(classCheck)) {
+                    saveBtn.classList.add(classCheck);
+                    updateProgressBar(progressItems, indexObj);
                 }
             } else {
-                if (saveBtn.classList.contains('third-screen__btn-check')) {
-                    saveBtn.classList.remove('third-screen__btn-check');
+                if (saveBtn.classList.contains(classCheck)) {
+                    saveBtn.classList.remove(classCheck);
                 }
             }
         }
     
-        // Обработчик для textarea
-        textarea.addEventListener('input', checkTextLength);
+        // input события
+        textareaThird.addEventListener('input', () => checkTextLength('third'));
+        textareaFourth.addEventListener('input', () => checkTextLength('fourth'));
     
-        // Изначально проверяем состояние при загрузке
-        checkTextLength();
-    
-        // Делегирование: навешиваем один обработчик на весь документ
+        // клик по кнопкам
         document.addEventListener('click', (e) => {
-            if (e.target.matches('.third-screen__btn-check')) {
-                updateProgressBar();
+            if (e.target.matches('#saveBtnThird')) {
+                if (textareaThird.value.trim().length >= 12) {
+                    updateProgressBar(progressBarItemsThird, state.third);
+                }
+            } else if (e.target.matches('#saveBtnFourth')) {
+                if (textareaFour.value.trim().length >= 12) { 
+                    updateProgressBar(progressBarItemsFour, state.fourth);
+                }
             }
         });
     
-        // Ваша функция обновления прогресс-бара
-        const progressBarItems = document.querySelectorAll('.progress-bar__item');
-        let currentIndex = 0;
+        function updateProgressBar(progressItems, indexObj) {
+            if (indexObj.index < progressItems.length) {
+                progressItems[indexObj.index].classList.remove('progress-bar__item-active');
+                progressItems[indexObj.index].classList.add('progress-bar__item-passed');
     
-        function updateProgressBar() {
-            if (currentIndex < progressBarItems.length) {
-                // Убираем активный класс у текущего элемента и добавляем passed
-                progressBarItems[currentIndex].classList.remove('progress-bar__item-active');
-                progressBarItems[currentIndex].classList.add('progress-bar__item-passed');
-    
-                // Обновляем stage внутри элемента
-                const stageElement = progressBarItems[currentIndex].querySelector('.progress-bar__item-stage');
+                const stageElement = progressItems[indexObj.index].querySelector('.progress-bar__item-stage');
                 if (stageElement) {
                     stageElement.classList.remove('progress-bar__item-stage');
                     stageElement.classList.add('progress-bar__item-stage_active');
                 }
     
-                currentIndex++;
+               indexObj.index++;
+               // Можно дополнительно обновлять активный класс у следующего элемента при необходимости
+               if (indexObj.index < progressItems.length) {
+                   progressItems[indexObj.index].classList.add('progress-bar__item-active');
+               }
+           }
+       }
     
-                // Активируем следующий элемент, если есть
-                if (currentIndex < progressBarItems.length) {
-                    progressBarItems[currentIndex].classList.add('progress-bar__item-active');
-                } else {
-                    // Можно добавить действия по завершению, например:
-                    // alert("Вы завершили опрос!");
-                    // или отключить кнопку и т.д.
-                }
-            }
-        }
     });
     </script>
 
