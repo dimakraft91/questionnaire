@@ -3,23 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
-    <script>
-    document.querySelector('.second-screen__btn').addEventListener('click', function() {
-    const questionsItem = document.querySelector('.questions__item');
-
-    // Проверяем, есть ли у questions__item класс questions__item-active
-    if (questionsItem && questionsItem.classList.contains('questions__item-active')) {
-        // Если есть — выполняем действия
-        document.querySelector('.second-screen').style.display = 'none';
-        document.querySelector('.third-screen').style.display = 'flex';
-    } else {
-        // Если нет — ничего не делаем или можете добавить сообщение
-        // например: alert('Пожалуйста, выберите вопрос');
-    }
-});
-</script>
     <script>
         function generateRandomTicketNumber(length) {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Латиница и цифры
@@ -80,9 +65,9 @@
             </div>
             <div class="start__bottom">
                 <div class="start__bottom-text">© 2025. All rights reserved.</div>
-                <a href="privacy.php" class="start__bottom-link">Privacy Policy</a>
-                <a href="Terms-of-Use.php" class="start__bottom-link">Terms of Use</a>
-                <a href="Contact-Us.php" class="start__bottom-link">Contact Us</a>
+                <a href="" class="start__bottom-link">Privacy Policy</a>
+                <a href="" class="start__bottom-link">Terms of Use</a>
+                <a href="" class="start__bottom-link">Contact Us</a>
             </div>
         </div>
     </section>
@@ -288,12 +273,6 @@
        </div>
     </div>
     </section>
-    
-    <div id="popup" class="popup-overlay" style="display: none;">
-    <div class="popup-content">
-        Done! If your ticket wins - we will contact you!
-    </div>
-    </div>
 
     <!-- Место для вывода сообщений -->
     <div id="responseMessage" style="display: none;"></div>
@@ -561,7 +540,7 @@
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            
+            alert("Thank you! Your email has been received.");
             // Можно очистить поле после успешной отправки
             emailInput.value = "";
         }
@@ -615,42 +594,25 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
         document.querySelector('.second-screen').style.display = 'flex';
     });
     // Обработчик события для кнопки по классу
-    // document.querySelector('.second-screen__btn').addEventListener('click', function() {
-    //     // Скрываем секцию вопросов
-    //     document.querySelector('.second-screen').style.display = 'none';
-        
-    //     // Показываем секцию детального вопроса
-    //     document.querySelector('.third-screen').style.display = 'flex';
-    // });
-
-    document.getElementById('submitBtn').addEventListener('click', function() {
-    // Получаем все чекбоксы внутри формы
-    const checkboxes = document.querySelectorAll('#questionsForm input[type="checkbox"]');
-    // Проверяем, есть ли выбранные чекбоксы
-    const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
-    
-    if (isAnyChecked) {
-        // Есть выбранные — показываем третью секцию
+    document.querySelector('.second-screen__btn').addEventListener('click', function() {
+        // Скрываем секцию вопросов
         document.querySelector('.second-screen').style.display = 'none';
+        
+        // Показываем секцию детального вопроса
         document.querySelector('.third-screen').style.display = 'flex';
-    } else {
-        // Нет выбранных — показываем вторую секцию
-        document.querySelector('.second-screen').style.display = 'flex';
-        document.querySelector('.third-screen').style.display = 'none';
-    }
-});
+    });
 
     document.querySelector('.third-screen__btn').addEventListener('click', function() {
     // Получаем значение из поля detailed-question__field
-    // const detailedQuestionField = document.querySelector('.detailed-question__field');
-    // const inputText = detailedQuestionField.value;
+    const detailedQuestionField = document.querySelector('.detailed-question__field');
+    const inputText = detailedQuestionField.value;
 
     // Проверяем количество введенных символов
-    // if (inputText.length < 12) {
-    //     // Если введено меньше 12 символов, ничего не делаем
-    //     document.querySelector('.detailed-question__warning').style.display = 'block';
-    //     return;
-    // }
+    if (inputText.length < 12) {
+        // Если введено меньше 12 символов, ничего не делаем
+        document.querySelector('.detailed-question__warning').style.display = 'block';
+        return;
+    }
 
     // Скрываем секцию вопросов
     document.querySelector('.third-screen').style.display = 'none';
@@ -710,20 +672,34 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
 
 <script>
     const progressBarItems = document.querySelectorAll('.progress-bar__item');
-    // const submitBtn = document.querySelector('.btn'); // Изменено на выбор по классу
+    const submitBtn = document.querySelector('.btn'); // Изменено на выбор по классу
     // const saveBtn = document.getElementById('saveBtn'); // Получаем кнопку по ID
-    // const saveBtnThird = document.getElementById('saveBtnThird'); // Получаем кнопку по ID
-    // const saveBtnFourth = document.getElementById('saveBtnFourth'); // Получаем кнопку по ID
-    // const saveBtnFifth = document.getElementById('saveBtnFifth'); // Получаем кнопку по ID
-    // const saveBtnSixth = document.getElementById('saveBtnSixth'); // Получаем кнопку по ID
-    // const saveBtnSeventh = document.getElementById('saveBtnSeventh'); // Получаем кнопку по ID
-    // const saveBtnEighth = document.getElementById('saveBtnEighth'); // Получаем кнопку по ID
-    const detailedQuestionField = document.querySelector('.detailed-question__field');
-    const inputText = detailedQuestionField.value;
+    const saveBtnThird = document.getElementById('saveBtnThird'); // Получаем кнопку по ID
+    const saveBtnFourth = document.getElementById('saveBtnFourth'); // Получаем кнопку по ID
+    const saveBtnFifth = document.getElementById('saveBtnFifth'); // Получаем кнопку по ID
+    const saveBtnSixth = document.getElementById('saveBtnSixth'); // Получаем кнопку по ID
+    const saveBtnSeventh = document.getElementById('saveBtnSeventh'); // Получаем кнопку по ID
+    const saveBtnEighth = document.getElementById('saveBtnEighth'); // Получаем кнопку по ID
+    
 
     let currentIndex = 0;
 
+    function checkAndToggleButtonId() {
+    const textLength = detailedQuestionField.value.length;
+    if (textLength < 12) {
+        // Убираем id у saveBtnThird
+        saveBtnThird.removeAttribute('id');
+    } else {
+        // Восстанавливаем id, если его нет
+        if (!saveBtnThird.getAttribute('id')) {
+            saveBtnThird.setAttribute('id', 'saveBtnThird');
+        }
+    }
+}
+
     function updateProgressBar() {
+
+        checkAndToggleButtonId();
         // Проверяем, что текущий индекс меньше количества элементов
         if (currentIndex < progressBarItems.length) {
             // Убираем класс active у текущего элемента и добавляем passed
@@ -746,14 +722,14 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
                 progressBarItems[currentIndex].classList.add('progress-bar__item-active');
             } else {
                 // Если это последний элемент, можно скрыть кнопку или сделать что-то еще
-                // submitBtn.disabled = true; // Пример: отключаем кнопку после последнего вопроса
+                submitBtn.disabled = true; // Пример: отключаем кнопку после последнего вопроса
                 // saveBtn.disabled = true; // Отключаем кнопку сохранения после завершения опроса
-                // saveBtnThird.disabled = true; // Отключаем кнопку сохранения после завершения опроса
-                // saveBtnFourth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
-                // saveBtnFifth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
-                // saveBtnSixth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
-                // saveBtnSeventh.disabled = true; // Отключаем кнопку сохранения после завершения опроса
-                // saveBtnEighth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                saveBtnThird.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                saveBtnFourth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                saveBtnFifth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                saveBtnSixth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                saveBtnSeventh.disabled = true; // Отключаем кнопку сохранения после завершения опроса
+                saveBtnEighth.disabled = true; // Отключаем кнопку сохранения после завершения опроса
 
                 
                 
@@ -763,71 +739,24 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
     }
 
     // Обработчик события для кнопки submit
-    // submitBtn.addEventListener('click', updateProgressBar);
+    submitBtn.addEventListener('click', updateProgressBar);
 
     // Обработчик события для кнопки save
     // saveBtn.addEventListener('click', updateProgressBar);
 
-    // if (inputText.length >= 12) {
-    //     saveBtnThird.addEventListener('click', updateProgressBar);     
-    // }
-    // else {
-    //     return;
-    // }
+    saveBtnThird.addEventListener('click', updateProgressBar);
 
-    // saveBtnThird.addEventListener('click', updateProgressBar);
+    saveBtnFourth.addEventListener('click', updateProgressBar);
 
-    // saveBtnFourth.addEventListener('click', updateProgressBar);
+    saveBtnFifth.addEventListener('click', updateProgressBar);
 
-    // saveBtnFifth.addEventListener('click', updateProgressBar);
+    saveBtnSixth.addEventListener('click', updateProgressBar);
 
-    // saveBtnSixth.addEventListener('click', updateProgressBar);
+    saveBtnSeventh.addEventListener('click', updateProgressBar);
 
-    // saveBtnSeventh.addEventListener('click', updateProgressBar);
-
-    // saveBtnEighth.addEventListener('click', updateProgressBar);
+    saveBtnEighth.addEventListener('click', updateProgressBar);
 
     </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.querySelector('.thanks__bottom-btn');
-    const popup = document.getElementById('popup');
-    const closeBtn = popup.querySelector('.close-btn');
-    const emailInput = document.querySelector('.thanks__bottom-mail');
-
-    // Функция для проверки заполненности поля
-    function isEmailFilled() {
-        return emailInput && emailInput.value.trim() !== '';
-    }
-
-    // Обработчик клика по кнопке
-    btn.addEventListener('click', function() {
-        if (isEmailFilled()) {
-            // Если поле заполнено, показываем popup
-            popup.style.display = 'flex';
-        } else {
-            // Если поле пустое, ничего не делаем или можно показать сообщение
-            // например, alert('Пожалуйста, введите ваш email');
-            
-        }
-    });
-
-    // Закрытие popup при клике на крестик
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-
-    // Закрытие popup при клике вне окна
-    popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
-});
-</script>
-
-
     
 </body>
 </html>

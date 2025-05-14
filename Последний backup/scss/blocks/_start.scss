@@ -9,14 +9,12 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    background: linear-gradient(to bottom, #5EEDC8 0%, #368772 50%, #368772 100%);
+    background-image: url('../img/start-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .start__logo {
     margin-top: 13px;
-}
-
-.start__logo-img {
-    max-width: 267px;
 }
 
 .start__body {

@@ -29,6 +29,9 @@ section {
     display: flex;
     justify-content: center;
     display: none;
+    // background-image: url('../img/start-bg.png');
+    // background-size: cover;
+    // background-repeat: no-repeat;
     // max-width: 430px;
     // margin: 0 auto;
 }
@@ -41,11 +44,12 @@ section {
 //     margin: 0 auto;
 // }
 
-
 .questionnaire__wrap {
     display: none;
     height: 100%;
-    background: linear-gradient(to bottom, #5EEDC8 0%, #368772 50%, #368772 100%);
+    background-image: url('../img/start-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     max-width: 430px;
     margin: 0 auto;
 }
@@ -207,7 +211,7 @@ textarea:invalid {
         margin-bottom: 8px;
     }
     .progress-bar__item-passed .progress-bar__item-stage_active {
-            width: 41px;
+        width: 41px;
     }
 }
         
