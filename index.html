@@ -145,7 +145,7 @@
     <div class="detailed-question__container container">
         <div class="detailed-question__title title">क्या आपके पसंदीदा टीवी होस्ट या अभिनेता हैं? अगर हां, तो उनके नाम बताएं</div>
         <div class="detailed-question__body">
-            <textarea name="tvPrograms" id="tvProgramsFourth" class="detailed-question__field" placeholder="कम से कम 3 ऐसे लोगों के नाम बताएं, जिनका आप सम्मान करते हैं और जिनकी राय आपके लिए मायने रखती है"></textarea>
+            <textarea name="tvPrograms" id="tvProgramsFourth" class="detailed-question__field detailed-question__field-fourth" placeholder="कम से कम 3 ऐसे लोगों के नाम बताएं, जिनका आप सम्मान करते हैं और जिनकी राय आपके लिए मायने रखती है"></textarea>
             <div class="detailed-question__warning">Minimum 12 characters</div>
         </div>
         <button id="saveBtnFourth" class="detailed-question__btn fourth-screen__btn btn">Next question</button>
@@ -159,7 +159,7 @@
             <textarea id="tvProgramsFifth" class="detailed-question__field" placeholder="उन लोगों के नाम लिखें, जिन पर आप अपने स्वास्थ्य के मामले में पूरी तरह भरोसा करेंगे"></textarea>
             <div class="detailed-question__warning">Minimum 12 characters</div>
         </div>
-        <button id="saveBtnFifth" class="detailed-question__btn fifth-screen__btn btn">Next question</button>
+        <button id="saveBtnFifth" class="detailed-question__btn btn">Next question</button>
     </div>
 </section>
 
@@ -661,6 +661,15 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
 
         // Обработчик события для кнопки по классу
         document.querySelector('.fourth-screen__btn').addEventListener('click', function() {
+            const detailedQuestionFieldFourth = document.querySelector('.detailed-question__field-fourth');
+            const inputTextFourth = detailedQuestionFieldFourth.value;
+
+        // Проверяем количество введенных символов
+        if (inputTextFourth.length < 12) {
+            // Если введено меньше 12 символов, ничего не делаем
+            // document.querySelector('.detailed-question__warning').style.display = 'block';
+            return;
+        }
             // Скрываем секцию вопросов
             document.querySelector('.fourth-screen').style.display = 'none';
             
@@ -919,24 +928,85 @@ updateButtonClass();
     });
     </script>
 
-<script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('tvProgramsFourth');
+            const saveBtn = document.getElementById('saveBtnFourth');
+
+            const progressBarItems = document.querySelectorAll('.progress-bar__item');
+            let currentIndex = 1; // начинаем с 1 вместо 0
+
+            function checkTextLength() {
+                if (textarea.value.trim().length >= 12) {
+                    if (!saveBtn.classList.contains('fourth-screen__btn-check')) {
+                        saveBtn.classList.add('fourth-screen__btn-check');
+                        // Автоматически обновляем прогрессбар при достижении условия
+                        updateProgressBar();
+                    }
+                } else {
+                    if (saveBtn.classList.contains('fourth-screen__btn-check')) {
+                        saveBtn.classList.remove('fourth-screen__btn-check');
+                    }
+                }
+            }
+
+            // Обработчик для textarea
+            textarea.addEventListener('input', checkTextLength);
+
+            // Изначально проверяем состояние при загрузке
+            checkTextLength();
+
+            // Обработчик для клика по кнопке
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('#saveBtnFourth')) {
+                    // Обновляем прогрессбар только если условие выполнено
+                    if (textarea.value.trim().length >= 12) {
+                        updateProgressBar();
+                    }
+                }
+            });
+
+            function updateProgressBar() {
+                if (currentIndex < progressBarItems.length) {
+                    progressBarItems[currentIndex].classList.remove('progress-bar__item-active');
+                    progressBarItems[currentIndex].classList.add('progress-bar__item-passed');
+
+                    const stageElement = progressBarItems[currentIndex].querySelector('.progress-bar__item-stage');
+                    if (stageElement) {
+                        stageElement.classList.remove('progress-bar__item-stage');
+                        stageElement.classList.add('progress-bar__item-stage_active');
+                    }
+
+                    currentIndex++;
+
+                    if (currentIndex < progressBarItems.length) {
+                        progressBarItems[currentIndex].classList.add('progress-bar__item-active');
+                    } else {
+                        // Можно добавить действия по завершению
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const textarea = document.getElementById('tvProgramsFourth');
-        const saveBtn = document.getElementById('saveBtnFourth');
+        const textarea = document.getElementById('tvProgramsFifth');
+        const saveBtn = document.getElementById('saveBtnFifth');
 
         const progressBarItems = document.querySelectorAll('.progress-bar__item');
-        let currentIndex = 1; // начинаем с 1 вместо 0
+        let currentIndex = 2; // начинаем с 1 вместо 0
 
         function checkTextLength() {
             if (textarea.value.trim().length >= 12) {
-                if (!saveBtn.classList.contains('fourth-screen__btn-check')) {
-                    saveBtn.classList.add('fourth-screen__btn-check');
+                if (!saveBtn.classList.contains('fifth-screen__btn-check')) {
+                    saveBtn.classList.add('fifth-screen__btn-check');
                     // Автоматически обновляем прогрессбар при достижении условия
                     updateProgressBar();
                 }
             } else {
-                if (saveBtn.classList.contains('fourth-screen__btn-check')) {
-                    saveBtn.classList.remove('fourth-screen__btn-check');
+                if (saveBtn.classList.contains('fifth-screen__btn-check')) {
+                    saveBtn.classList.remove('fifth-screen__btn-check');
                 }
             }
         }
@@ -949,7 +1019,7 @@ updateButtonClass();
 
         // Обработчик для клика по кнопке
         document.addEventListener('click', (e) => {
-            if (e.target.matches('#saveBtnFourth')) {
+            if (e.target.matches('#saveBtnFifth')) {
                 // Обновляем прогрессбар только если условие выполнено
                 if (textarea.value.trim().length >= 12) {
                     updateProgressBar();
@@ -978,7 +1048,7 @@ updateButtonClass();
             }
         }
     });
-</script>
+    </script>
 
 <!-- <script>
     document.addEventListener('DOMContentLoaded', () => {
