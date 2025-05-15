@@ -34,10 +34,6 @@ if (isset($_POST['questions']) && is_array($_POST['questions'])) {
     $seventhScreen = $_POST['seventhScreen'];
     file_put_contents($filePath, $seventhScreen . "; ", FILE_APPEND | LOCK_EX);
     echo json_encode(['message' => $currentDateTime . ' - Данные с седьмого экрана успешно сохранены']);
-} elseif (isset($_POST['EighthField'])) {
-    $eighthField = $_POST['EighthField'];
-    file_put_contents($filePath, $eighthField . "; ", FILE_APPEND | LOCK_EX);
-    // echo json_encode(['message' => $currentDateTime . ' - Данные восьмого поля успешно сохранены']);
 } elseif (isset($_POST['finalquestions']) && is_array($_POST['finalquestions'])) {
     $texts = $_POST['finalquestions'];
     $dataToWrite = implode("; ", $texts);

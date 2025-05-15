@@ -188,7 +188,7 @@
     <section class="detailed-question eighth-screen" id="eighth-screen">
         <div class="detailed-question__container container">
             <div class="detailed-question__title title">आपको विज्ञापन में क्या पसंद आता है?</div>
-            <form id="questionsFormEight" class="questionsForm">
+            <form id="questionsForm" class="questionsForm questionsformeight">
                 <div class="questions__item">
                     <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item1" value="ईमानदारी और स्पष्टता">
                     <label class="questions__item-text" for="item1">ईमानदारी और स्पष्टता</label>
@@ -283,7 +283,7 @@
     <!-- Место для вывода сообщений -->
     <div id="responseMessage" style="display: none;"></div>
 
-    <!-- <script>
+    <script>
     // Обработчик для кнопки отправки вопросов
     document.getElementById('submitBtn').addEventListener('click', function() {
         const checkboxes = document.querySelectorAll('.questions__item-check');
@@ -433,7 +433,37 @@
         xhr.send(params); // Отправляем данные
     });
 
-    // Обработчик для кнопки сохранения данных о ТВ программах (7 секция)
+    // Обработчик для кнопки сохранения данных о ТВ программах (8 секция)
+    // document.getElementById('saveBtnEighth').addEventListener('click', function() {
+    //     const tvPrograms = document.getElementById('EighthField').value;
+
+    //     if (tvPrograms.length < 12) {
+    //         document.getElementById('responseMessage').innerText = "Пожалуйста, введите минимум 12 символов.";
+    //         return; // Прекращаем выполнение функции
+    //     }
+
+    //     // Отправка данных через AJAX
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open("POST", "save.php", true);
+    //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    //     xhr.onreadystatechange = function() {
+    //         if (xhr.readyState === 4 && xhr.status === 200) {
+    //             const response = JSON.parse(xhr.responseText);
+    //             // Выводим сообщение на странице
+    //             document.getElementById('responseMessage').innerText = response.message;
+    //         }
+    //     };
+
+    //     // Формируем строку для отправки
+    //     const params = "EighthField=" + encodeURIComponent(tvPrograms);
+        
+    //     xhr.send(params); // Отправляем данные
+    // });    
+    </script>
+        
+    <script>
+        // Обработчик для кнопки сохранения данных о ТВ программах (7 секция)
     document.getElementById('saveBtnSeventh').addEventListener('click', function() {
         const tvPrograms = document.getElementById('seventhScreen').value;
 
@@ -460,39 +490,11 @@
         
         xhr.send(params); // Отправляем данные
     });
+    </script>
 
-    // Обработчик для кнопки сохранения данных о ТВ программах (8 секция)
-    document.getElementById('saveBtnEighth').addEventListener('click', function() {
-        const tvPrograms = document.getElementById('EighthField').value;
-
-        if (tvPrograms.length < 12) {
-            document.getElementById('responseMessage').innerText = "Пожалуйста, введите минимум 12 символов.";
-            return; // Прекращаем выполнение функции
-        }
-
-        // Отправка данных через AJAX
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "save.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                // Выводим сообщение на странице
-                document.getElementById('responseMessage').innerText = response.message;
-            }
-        };
-
-        // Формируем строку для отправки
-        const params = "EighthField=" + encodeURIComponent(tvPrograms);
-        
-        xhr.send(params); // Отправляем данные
-    });    
-    </script> -->
-
-    <!-- <script>
+    <script>
         // Обработчик для кнопки отправки вопросов
-        document.getElementById('saveBtnNinth').addEventListener('click', function() {
+        document.getElementById('saveBtnEighth').addEventListener('click', function() {
             const checkboxes = document.querySelectorAll('.questions__item-check');
             let isChecked = false;
             const selectedQuestions = [];
@@ -527,9 +529,9 @@
             
             xhr.send(params); // Отправляем данные
         });
-    </script> -->
+    </script>
 
-    <!-- <script>
+    <script>
         document.querySelector('.thanks__bottom-btn').addEventListener('click', function() {
         const emailInput = document.querySelector('.thanks__bottom-mail');
         const email = emailInput.value.trim();
@@ -556,9 +558,9 @@
         const params = "email=" + encodeURIComponent(email);
         xhr.send(params);
     });
-    </script> -->
+    </script>
 
-    <!-- <script>
+    <script>
     // Обработчик для кнопки сохранения данных о ТВ программах (девятая секция)
 document.getElementById('saveBtnNinth').addEventListener('click', function() {
     const tvPrograms = document.getElementById('ninth-screen').value;
@@ -586,7 +588,7 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
     
     xhr.send(params); // Отправляем данные
 });
-</script> -->
+    </script>
 
 
     <script>
@@ -680,11 +682,11 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
         });
         document.querySelector('.sixth-screen__btn').addEventListener('click', function() {
             // Скрываем секцию вопросов detailed-question__field
-            const detailedQuestionFieldSeventh = document.querySelector('.detailed-question__field-sixth');
-            const inputTextSeventh = detailedQuestionFieldSeventh.value;
+            const detailedQuestionFieldSixth = document.querySelector('.detailed-question__field-sixth');
+            const inputTextSixth = detailedQuestionFieldSixth.value;
 
             // Проверяем количество введенных символов
-            if (inputTextSeventh.length < 12) {
+            if (inputTextSixth.length < 12) {
                 // Если введено меньше 12 символов, ничего не делаем
                 // document.querySelector('.detailed-question__warning').style.display = 'block';
                 return;
@@ -695,7 +697,16 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
             document.querySelector('.seventh-screen').style.display = 'flex';
         });
         document.querySelector('.seventh-screen__btn').addEventListener('click', function() {
-            // Скрываем секцию вопросов detailed-question__field-seventh
+            // Скрываем секцию вопросов
+            const detailedQuestionFieldSeventh = document.querySelector('.detailed-question__field-seventh');
+            const inputTextSeventh = detailedQuestionFieldSeventh.value;
+
+            // Проверяем количество введенных символов
+            if (inputTextSeventh.length < 12) {
+                // Если введено меньше 12 символов, ничего не делаем
+                // document.querySelector('.detailed-question__warning').style.display = 'block';
+                return;
+            }
             document.querySelector('.seventh-screen').style.display = 'none';
             
             // Показываем секцию детального вопроса
@@ -707,7 +718,7 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
             // Скрываем секцию вопросов
 
             // Получаем все чекбоксы внутри формы
-        const checkboxesEighth = document.querySelectorAll('#questionsFormEight input[type="checkbox"]');
+        const checkboxesEighth = document.querySelectorAll('.questionsformeight input[type="checkbox"]');
         // Проверяем, есть ли выбранные чекбоксы
         const isAnyCheckedEighth = Array.from(checkboxesEighth).some(cb => cb.checked);
         
@@ -1117,7 +1128,6 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
     document.addEventListener('DOMContentLoaded', function() {
     const btn = document.querySelector('.thanks__bottom-btn');
     const popup = document.getElementById('popup');
-    const closeBtn = popup.querySelector('.close-btn');
     const emailInput = document.querySelector('.thanks__bottom-mail');
 
     // Функция для проверки заполненности поля
@@ -1138,9 +1148,6 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
     });
 
     // Закрытие popup при клике на крестик
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
 
     // Закрытие popup при клике вне окна
     popup.addEventListener('click', function(e) {
