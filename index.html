@@ -185,10 +185,10 @@
         </div>
     </section>
 
-    <section class="detailed-question ninth-screen" id="ninth-screen">
+    <section class="detailed-question eighth-screen" id="eighth-screen">
         <div class="detailed-question__container container">
             <div class="detailed-question__title title">आपको विज्ञापन में क्या पसंद आता है?</div>
-            <form id="questionsForm" class="questionsForm">
+            <form id="questionsFormEight" class="questionsForm">
                 <div class="questions__item">
                     <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item1" value="ईमानदारी और स्पष्टता">
                     <label class="questions__item-text" for="item1">ईमानदारी और स्पष्टता</label>
@@ -213,7 +213,7 @@
                     <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="बोनस और डिस्काउंट">
                     <label class="questions__item-text" for="item5">बोनस और डिस्काउंट</label>
                 </div>
-                <button type="button" id="saveBtnEighth" class="questions__btn ninth-screen__btn btn">GET BONUSES</button>
+                <button type="button" id="saveBtnEighth" class="questions__btn eighth-screen__btn btn">GET BONUSES</button>
             </form>
         </div>
     </section>
@@ -701,21 +701,32 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
             // Показываем секцию детального вопроса
             document.querySelector('.eighth-screen').style.display = 'flex';
         });
+
+
         document.querySelector('.eighth-screen__btn').addEventListener('click', function() {
             // Скрываем секцию вопросов
+
+            // Получаем все чекбоксы внутри формы
+        const checkboxesEighth = document.querySelectorAll('#questionsFormEight input[type="checkbox"]');
+        // Проверяем, есть ли выбранные чекбоксы
+        const isAnyCheckedEighth = Array.from(checkboxesEighth).some(cb => cb.checked);
+        
+        if (isAnyCheckedEighth) {
             document.querySelector('.eighth-screen').style.display = 'none';
-            
-            // Показываем секцию детального вопроса
-            document.querySelector('.ninth-screen').style.display = 'flex';
-        });
-        document.querySelector('.ninth-screen__btn').addEventListener('click', function() {
-            // Скрываем секцию вопросов
-            document.querySelector('.ninth-screen').style.display = 'none';
             document.querySelector('.progress-bar').style.display = 'none';
             document.querySelector('.questionnaire__wrap').style.display = 'none';
-
-            // Показываем секцию детального вопроса
-            document.querySelector('.thanks').style.display = 'flex';
+            document.querySelector('.thanks').style.display = 'flex';        
+        } else {
+            // Нет выбранных — показываем вторую секцию
+            document.querySelector('.eighth-screen').style.display = 'flex';
+            document.querySelector('.progress-bar').style.display = 'flex';
+            document.querySelector('.questionnaire__wrap').style.display = 'flex';
+            document.querySelector('.thanks').style.display = 'none';  
+        }
+    
+           // Показываем секцию детального вопроса
+            
+            // Показываем секцию thanks
         });
     </script>
 
