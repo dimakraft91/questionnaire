@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scss/main.css">
     <title>Document</title>
-    <!-- <script>
+    <script>
     document.querySelector('.second-screen__btn').addEventListener('click', function() {
     const questionsItem = document.querySelector('.questions__item');
 
@@ -19,8 +19,8 @@
         // например: alert('Пожалуйста, выберите вопрос');
     }
 });
-    </script> -->
-    <!-- <script>
+    </script>
+    <script>
         function generateRandomTicketNumber(length) {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Латиница и цифры
             let result = '';
@@ -36,7 +36,7 @@
             const randomTicketNumber = generateRandomTicketNumber(7); // Генерируем 7 символов
             ticketNumberElement.textContent = randomTicketNumber; // Устанавливаем сгенерированный номер
         });
-    </script> -->
+    </script> 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const questionsItems = document.querySelectorAll('.questions__item');
@@ -189,32 +189,32 @@
         <div class="detailed-question__container container">
             <div class="detailed-question__title title">आपको विज्ञापन में क्या पसंद आता है?</div>
             <form id="questionsForm" class="questionsForm">
-                <div class="questions__item">
-                    <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item1" value="ईमानदारी और स्पष्टता">
-                    <label class="questions__item-text" for="item1">ईमानदारी और स्पष्टता</label>
-                </div>
-                <div class="questions__item">
-                    <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item2" value="असली पुरुषों की कहानियाँ">
-                    <label class="questions__item-text" for="item2">असली पुरुषों की कहानियाँ</label>
-                </div>
-                <div class="questions__item">
-                    <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item3" value="कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका">
-                    <label class="questions__item-text" for="item3">कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका</label>
-                </div>
-                <div class="questions__item">
-                    <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item4" value="सरलता और सम्मान">
-                    <label class="questions__item-text" for="item4">सरलता और सम्मान</label>
-                </div>
-                <div class="questions__item">
-                    <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर">
-                    <label class="questions__item-text" for="item5">मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर</label>
-                </div>
-                <div class="questions__item">
-                    <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="बोनस और डिस्काउंट">
-                    <label class="questions__item-text" for="item5">बोनस और डिस्काउंट</label>
-                </div>
-                <button type="button" id="saveBtnEighth" class="questions__btn ninth-screen__btn btn">GET BONUSES</button>
-            </form>
+                        <div class="questions__item">
+                            <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item1" value="ईमानदारी और स्पष्टता">
+                            <label class="questions__item-text" for="item1">ईमानदारी और स्पष्टता</label>
+                        </div>
+                        <div class="questions__item">
+                            <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item2" value="असली पुरुषों की कहानियाँ">
+                            <label class="questions__item-text" for="item2">असली पुरुषों की कहानियाँ</label>
+                        </div>
+                        <div class="questions__item">
+                            <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item3" value="कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका">
+                            <label class="questions__item-text" for="item3">कैसे काम करता है, इसका आसान और साफ़ समझाया गया तरीका</label>
+                        </div>
+                        <div class="questions__item">
+                            <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item4" value="सरलता और सम्मान">
+                            <label class="questions__item-text" for="item4">सरलता और सम्मान</label>
+                        </div>
+                        <div class="questions__item">
+                            <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर">
+                            <label class="questions__item-text" for="item5">मर्दाना अंदाज़: बिना रोए-धोए, सीधे मुद्दे पर</label>
+                        </div>
+                        <div class="questions__item">
+                            <input type="checkbox" name="finalquestions[]" class="questions__item-check" id="item5" value="बोनस और डिस्काउंट">
+                            <label class="questions__item-text" for="item5">बोनस और डिस्काउंट</label>
+                        </div>
+                        <button type="button" id="saveBtnNinth" class="questions__btn ninth-screen__btn btn">GET BONUSES</button>
+                    </form>
         </div>
     </section>
 
@@ -283,7 +283,7 @@
     <!-- Место для вывода сообщений -->
     <div id="responseMessage" style="display: none;"></div>
 
-    <!-- <script>
+    <script>
     // Обработчик для кнопки отправки вопросов
     document.getElementById('submitBtn').addEventListener('click', function() {
         const checkboxes = document.querySelectorAll('.questions__item-check');
@@ -488,9 +488,9 @@
         
         xhr.send(params); // Отправляем данные
     });    
-    </script> -->
+    </script> 
 
-    <!-- <script>
+    <script>
         // Обработчик для кнопки отправки вопросов
         document.getElementById('saveBtnNinth').addEventListener('click', function() {
             const checkboxes = document.querySelectorAll('.questions__item-check');
@@ -527,9 +527,9 @@
             
             xhr.send(params); // Отправляем данные
         });
-    </script> -->
+    </script>
 
-    <!-- <script>
+    <script>
         document.querySelector('.thanks__bottom-btn').addEventListener('click', function() {
         const emailInput = document.querySelector('.thanks__bottom-mail');
         const email = emailInput.value.trim();
@@ -556,9 +556,9 @@
         const params = "email=" + encodeURIComponent(email);
         xhr.send(params);
     });
-    </script> -->
+    </script>
 
-    <!-- <script>
+<script>
     // Обработчик для кнопки сохранения данных о ТВ программах (девятая секция)
 document.getElementById('saveBtnNinth').addEventListener('click', function() {
     const tvPrograms = document.getElementById('ninth-screen').value;
@@ -586,7 +586,7 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
     
     xhr.send(params); // Отправляем данные
 });
-</script> -->
+</script>
 
 
     <script>
@@ -718,6 +718,79 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
             document.querySelector('.thanks').style.display = 'flex';
         });
     </script>
+
+    <script>
+        // Получаем все чекбоксы внутри формы
+const checkboxes = document.querySelectorAll('#questionsForm input[type="checkbox"]');
+// Получаем кнопку
+const submitBtn = document.getElementById('submitBtn');
+
+function updateButtonClass() {
+    // Проверяем, есть ли выбранные чекбоксы
+    const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+    if (anyChecked) {
+        // Если есть выбранные — добавляем класс
+        submitBtn.classList.add('second-screen__btn');
+    } else {
+        // Если нет — убираем класс
+        submitBtn.classList.remove('second-screen__btn');
+    }
+}
+
+// Назначаем обработчики change для каждого чекбокса
+checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateButtonClass);
+});
+
+// Можно вызвать сразу при загрузке, чтобы учесть текущие состояния
+updateButtonClass();
+    </script>
+
+    <!-- <script>
+
+        const progressBarItems = document.querySelectorAll('.progress-bar__item');
+        const secondScreenBtn = document.querySelector('.second-screen__btn');
+        // const submitBtn = document.getElementById('submitBtn');
+
+        let currentIndex = 0;
+
+        function attachClickHandler() {
+    const btn = document.querySelector('.second-screen__btn');
+    if (btn && !btn.dataset.handlerAttached) {
+        btn.addEventListener('click', updateProgressBar);
+        btn.dataset.handlerAttached = 'true'; // чтобы не навешивать несколько раз
+    }
+}
+
+        function updateProgressBar() {
+    // Проверяем, что текущий индекс меньше количества элементов
+    if (currentIndex < progressBarItems.length) {
+        // Убираем класс active у текущего элемента и добавляем passed
+        progressBarItems[currentIndex].classList.remove('progress-bar__item-active');
+        progressBarItems[currentIndex].classList.add('progress-bar__item-passed');
+
+        // Удаляем класс у элемента stage и добавляем новый класс
+        const stageElement = progressBarItems[currentIndex].querySelector('.progress-bar__item-stage');
+        if (stageElement) {
+            stageElement.classList.remove('progress-bar__item-stage');
+            stageElement.classList.add('progress-bar__item-stage_active');
+        }
+
+        // Переходим к следующему элементу
+        currentIndex++;
+
+        // Проверяем, есть ли следующий элемент
+        if (currentIndex < progressBarItems.length) {
+            // Добавляем класс active к следующему элементу
+            progressBarItems[currentIndex].classList.add('progress-bar__item-active');
+        }
+    }
+}
+
+    secondScreenBtn.addEventListener('click', updateProgressBar);
+
+    </script> -->
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1102,8 +1175,31 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
         });
     </script>
 
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.getElementById('tvProgramsThird');
+        const saveBtn = document.getElementById('saveBtnThird');
+    
+        // Функция для проверки длины текста и обновления класса кнопки
+        function checkTextLength() {
+            if (textarea.value.trim().length >= 12) {
+                saveBtn.classList.add('third-screen__btn-check');
+            } else {
+                saveBtn.classList.remove('third-screen__btn-check');
+            }
+        }
+    
+        // Обработчик события input для отслеживания изменений в textarea
+        textarea.addEventListener('input', checkTextLength);
+    
+        // Изначально проверяем состояние при загрузке страницы
+        checkTextLength();
+    });
+    </script> -->
+
+
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const btn = document.querySelector('.thanks__bottom-btn');
     const popup = document.getElementById('popup');
     const closeBtn = popup.querySelector('.close-btn');
@@ -1138,7 +1234,7 @@ document.getElementById('saveBtnNinth').addEventListener('click', function() {
         }
     });
 });
-    </script>
+</script>
 
 
     
