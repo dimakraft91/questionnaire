@@ -11,8 +11,8 @@ $currentDateTime = date('Y-m-d H:i:s');
 if (isset($_POST['questions']) && is_array($_POST['questions'])) {
     $texts = $_POST['questions'];
     $dataToWrite = implode("; ", $texts);
-    // Записываем в файл с датой и временем
-    file_put_contents($filePath, $currentDateTime . ' - ' . $dataToWrite . "; ", FILE_APPEND | LOCK_EX);
+    // Записываем с новой строки
+    file_put_contents($filePath, PHP_EOL . $currentDateTime . ' - ' . $dataToWrite . "; ", FILE_APPEND | LOCK_EX);
     echo json_encode(['message' => $currentDateTime . ' - Данные успешно сохранены']);
 } elseif (isset($_POST['tvProgramsThird'])) {
     $tvProgramTextThird = $_POST['tvProgramsThird'];
@@ -34,6 +34,10 @@ if (isset($_POST['questions']) && is_array($_POST['questions'])) {
     $seventhScreen = $_POST['seventhScreen'];
     file_put_contents($filePath, $seventhScreen . "; ", FILE_APPEND | LOCK_EX);
     echo json_encode(['message' => $currentDateTime . ' - Данные с седьмого экрана успешно сохранены']);
+} elseif (isset($_POST['EighthField'])) {
+    $eighthField = $_POST['EighthField'];
+    file_put_contents($filePath, $eighthField . "; ", FILE_APPEND | LOCK_EX);
+    // echo json_encode(['message' => $currentDateTime . ' - Данные восьмого поля успешно сохранены']);
 } elseif (isset($_POST['finalquestions']) && is_array($_POST['finalquestions'])) {
     $texts = $_POST['finalquestions'];
     $dataToWrite = implode("; ", $texts);

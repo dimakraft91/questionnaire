@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+--font-family: "Montserrat", sans-serif;
+--second-family: "Suez One", sans-serif;
+--third-family: "Kohinoor Devanagari", sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+.container {
+    max-width: 430px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.second-screen {
+    display: flex;
+}
+
+.btn {
+    width: 100%;
+    background: #000;
+    border-radius: 13px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    padding: 17px 0;
+    margin-top: auto;
+}
+
+.title {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #0f1322;
+    margin-bottom: 10px;  
+}
+
+.progress-bar {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    width: 410px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+    margin: 0 auto;
+}
+.progress-bar__item {
+    border-radius: 100%;
+    background-color: #d6d6d6;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    z-index: 1;
+    .progress-bar__item-stage {
+        width: 54px;
+        height: 6px;
+        background-color: #D6D6D6;
+        display: inline-block;
+        position: relative;
+        z-index: -1;
+        left: 9px;
+        top: -3px;
+        border-radius: 3px;
+    }
+    // &::after {
+    //     content: '';
+    //     display: block;
+    //     border-radius: 10px;
+    //     background: rgba(255, 255, 255, 0.8);
+    //     width: 50px;
+    //     height: 6px;
+    // }
+}
+
+.progress-bar__item-active {
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    &::before {
+        content: '';
+        background: url('../img/stage.svg');
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: block;
+        left: -7px;
+        top: -7px;
+    }
+}
+
+.progress-bar__item-passed {
+    background: url('../img/stage-complete.svg');
+}
+
+.progress-bar__item-passed .progress-bar__item-stage_active {
+    background: #FFBF00;
+    left: 14px;
+    width: 51px;
+    height: 6px;
+        display: inline-block;
+        position: relative;
+        z-index: -1;
+        top: -3px;
+        border-radius: 3px;
+}
+
+        
