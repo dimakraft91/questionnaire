@@ -1,15 +1,6 @@
 
     const progressBarItems = document.querySelectorAll('.progress-bar__item');
-    // const submitBtn = document.querySelector('.btn'); // Изменено на выбор по классу
-    // const saveBtn = document.getElementById('saveBtn'); // Получаем кнопку по ID
-    // const saveBtnThird = document.getElementById('saveBtnThird'); // Получаем кнопку по ID
-    // const saveBtnFourth = document.getElementById('saveBtnFourth'); // Получаем кнопку по ID
-    // const saveBtnFifth = document.getElementById('saveBtnFifth'); // Получаем кнопку по ID
-    // const saveBtnSixth = document.getElementById('saveBtnSixth'); // Получаем кнопку по ID
-    // const saveBtnSeventh = document.getElementById('saveBtnSeventh'); // Получаем кнопку по ID
-    // const saveBtnEighth = document.getElementById('saveBtnEighth'); // Получаем кнопку по ID
-    // const detailedQuestionField = document.querySelector('.detailed-question__field');
-    // const inputText = detailedQuestionField.value;
+    const thirdScreenBtnCheck = document.querySelector('.third-screen__btn-check'); // Изменено на выбор по классу
 
     let currentIndex = 0;
 
@@ -53,26 +44,4 @@
     }
 
     // Обработчик события для кнопки submit
-    submitBtn.addEventListener('click', updateProgressBar);
-
-    // Обработчик события для кнопки save
-    // saveBtn.addEventListener('click', updateProgressBar);
-
-    // if (inputText.length >= 12) {
-    //     saveBtnThird.addEventListener('click', updateProgressBar);     
-    // }
-    // else {
-    //     return;
-    // }
-
-    // saveBtnThird.addEventListener('click', updateProgressBar);
-
-    // saveBtnFourth.addEventListener('click', updateProgressBar);
-
-    // saveBtnFifth.addEventListener('click', updateProgressBar);
-
-    // saveBtnSixth.addEventListener('click', updateProgressBar);
-
-    // saveBtnSeventh.addEventListener('click', updateProgressBar);
-
-    // saveBtnEighth.addEventListener('click', updateProgressBar);
+    thirdScreenBtnCheck.addEventListener('click', updateProgressBar);
