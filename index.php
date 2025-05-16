@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en-IN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/main.css">
     <title>संक्षिप्त सर्वेक्षण पूरा करें और कुल $346 मूल्य के 3 बोनस सुनिश्चित रूप से प्राप्त करें, साथ ही 3 नई Toyota Camry XSE कारों के लकी ड्रा में स्वचालित रूप से भाग लें।</title>    
-    <script>
+
+   <script>
         // Генерация рандомного купона
 
         function generateRandomTicketNumber(length) {
@@ -323,14 +324,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="subscription__item-title">30-Day Premium Planner - 49$</div>
             <div class="subscription__item-body">
                 <p class="subscription__item-text">लक्ष्य प्राप्ति के लिए प्रीमियम कैलेंडर, जो आपकी आदतों, <br> आहार या दवाओं के सेवन पर नज़र रखने में मदद करेगा</p>
-                <div class="subscription__right">TAKE FREE</div>
+                <a href="Premium_30_Day_Planner.pdf" download="Free month plan" class="subscription__right">TAKE FREE</a>
             </div>
         </div>
         <div class="subscription__item">
             <div class="subscription__item-title">Private Community Access - 297$</div>
             <div class="subscription__item-body">
                 <p class="subscription__item-text">एक बंद समूह, जहाँ आप विशेषज्ञों और समान सोच रखने वाले <br> लोगों से सलाह, समर्थन और प्रतिक्रिया प्राप्त कर सकते हैं</p>
-                <div class="subscription__right">TAKE FREE</div>
+                <a href="https://t.me/DrAmitBansal" target="blank" class="subscription__right">TAKE FREE</a>
             </div>
         </div>
         <div class="subscription__item">
@@ -345,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="ticket__body">
                 <div class="ticket__title">Your lottery ticket</div>
                 <p class="ticket__description">You are automatically participating in the draw for 3 new Toyota Camry XSE cars</p>
-                <p class="ticket__result">Draw results: May 19, 2025</p>
+                <p class="ticket__result">Draw results: <span class="end-date"></span></p>
             </div>
             <div class="ticket__number"><div class="ticket__number-wrap"><span class="ticket__number-text">X2S54G0</span></div></div>
         </div>
@@ -354,8 +355,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 नीचे अपना ईमेल दर्ज करें ताकि हम आपसे संपर्क कर सकें, अगर आपका टिकट जीत जाता है! हम आपकी सफलता और अच्छे स्वास्थ्य की कामना करते हैं!
             </div>
             <div class="thanks__bottom-wrap">
-                <input type="text" placeholder="Enter your email..." class="thanks__bottom-mail">
-                <button class="thanks__bottom-btn">Notify me</button>
+                    <input type="text" placeholder="Enter your email..." class="thanks__bottom-mail">
+                    <button class="thanks__bottom-btn">Notify me</button>
+            </div>
+            <div id="popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    Done! If your ticket wins - we will contact you!
+                </div>
             </div>
         </div>
         </div>
@@ -363,11 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     </section>
     
-    <div id="popup" class="popup-overlay" style="display: none;">
-    <div class="popup-content">
-        Done! If your ticket wins - we will contact you!
-    </div>
-    </div>
+    
 
     <script>
         // popup окно
@@ -901,6 +903,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     </script>
 
+<script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.querySelector('.thanks__bottom-btn');
+    const emailInput = document.querySelector('.thanks__bottom-mail');
+    const thanksWrap = document.querySelector('.thanks__bottom-wrap'); // исходный блок
+    const popupOverlay = document.querySelector('.popup-overlay'); // оверлей
+
+    // Функция для проверки заполненности поля
+    function isEmailFilled() {
+        return emailInput && emailInput.value.trim() !== '';
+    }
+
+    // Обработчик клика по кнопке
+    btn.addEventListener('click', function() {
+        if (isEmailFilled()) {
+            // Скрываем thanks__bottom-wrap
+            if (thanksWrap) {
+                thanksWrap.style.display = 'none';
+            }
+            // Показываем popup-overlay
+            if (popupOverlay) {
+                popupOverlay.style.display = 'flex'; // или другой стиль, который нужен
+            }
+        } else {
+            // Можно оставить пустым или показывать сообщение
+            // alert('Пожалуйста, введите ваш email');
+        }
+    });
+});
+    </script>
+
+    <script src="js/libs/moment-with-locales.min.js"></script>
+    
+    <script defer>
+        const endDateEl = document.querySelector('.end-date');
+        if(endDateEl) {
+            moment.locale(document.documentElement.lang.split('-')[0]);
+            endDateEl.innerText = moment().add(3, 'days').format('LL');
+        }
+    </script>
+    
+   
     
     
 </body>

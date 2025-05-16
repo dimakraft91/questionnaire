@@ -66,6 +66,7 @@ html {
 body, html {
   background: linear-gradient(to bottom, #5EEDC8 0%, #368772 50%, #368772 100%);
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 .container {
@@ -508,6 +509,8 @@ textarea:invalid {
 
 .thanks {
   padding: 0px 0;
+  margin-bottom: 0;
+  background: #fff;
 }
 
 .thanks__container {
@@ -748,7 +751,7 @@ textarea:invalid {
 
 .thanks__bottom {
   margin-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 0;
 }
 
 .thanks__bottom-text {
@@ -803,17 +806,7 @@ textarea:invalid {
 }
 
 .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(18, 18, 18, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 9px 0;
+  margin-top: 15px;
 }
 
 .popup-content {

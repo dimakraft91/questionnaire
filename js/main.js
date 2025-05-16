@@ -369,29 +369,24 @@ document.getElementById('saveBtnEighth').addEventListener('click', function() {
 
 
         document.querySelector('.eighth-screen__btn').addEventListener('click', function() {
-            // Скрываем секцию вопросов
-
             // Получаем все чекбоксы внутри формы
-        const checkboxesEighth = document.querySelectorAll('.questionsformeight input[type="checkbox"]');
-        // Проверяем, есть ли выбранные чекбоксы
-        const isAnyCheckedEighth = Array.from(checkboxesEighth).some(cb => cb.checked);
-        
-        if (isAnyCheckedEighth) {
-            document.querySelector('.eighth-screen').style.display = 'none';
-            document.querySelector('.progress-bar').style.display = 'none';
-            document.querySelector('.questionnaire__wrap').style.display = 'none';
-            document.querySelector('.thanks').style.display = 'flex';        
-        } else {
-            // Нет выбранных — показываем вторую секцию
-            document.querySelector('.eighth-screen').style.display = 'flex';
-            document.querySelector('.progress-bar').style.display = 'flex';
-            document.querySelector('.questionnaire__wrap').style.display = 'flex';
-            document.querySelector('.thanks').style.display = 'none';  
-        }
-    
-           // Показываем секцию детального вопроса
+            const checkboxesEighth = document.querySelectorAll('.questionsformeight input[type="checkbox"]');
+            // Проверяем, есть ли выбранные чекбоксы
+            const isAnyCheckedEighth = Array.from(checkboxesEighth).some(cb => cb.checked);
             
-            // Показываем секцию thanks
+            if (isAnyCheckedEighth) {
+                // Перенаправляем на thanks.php
+                document.querySelector('.thanks').style.display = 'flex';
+                document.querySelector('.eighth-screen').style.display = 'none';
+                document.querySelector('.progress-bar').style.display = 'none';
+                document.querySelector('.questionnaire__wrap').style.display = 'none';
+            } else {
+                // Нет выбранных — показываем секцию вопросов
+                document.querySelector('.eighth-screen').style.display = 'flex';
+                document.querySelector('.progress-bar').style.display = 'flex';
+                document.querySelector('.questionnaire__wrap').style.display = 'flex';
+                document.querySelector('.thanks').style.display = 'none';  
+            }
         });
 
 // скрипт для проверки ввода 12 символов и переключение между экранами
@@ -400,8 +395,9 @@ document.getElementById('saveBtnEighth').addEventListener('click', function() {
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     const btn = document.querySelector('.thanks__bottom-btn');
-//     const popup = document.getElementById('popup');
 //     const emailInput = document.querySelector('.thanks__bottom-mail');
+//     const thanksWrap = document.querySelector('.thanks__bottom-wrap'); // исходный блок
+//     const popupOverlay = document.querySelector('.popup-overlay'); // оверлей
 
 //     // Функция для проверки заполненности поля
 //     function isEmailFilled() {
@@ -411,21 +407,17 @@ document.getElementById('saveBtnEighth').addEventListener('click', function() {
 //     // Обработчик клика по кнопке
 //     btn.addEventListener('click', function() {
 //         if (isEmailFilled()) {
-//             // Если поле заполнено, показываем popup
-//             popup.style.display = 'flex';
+//             // Скрываем thanks__bottom-wrap
+//             if (thanksWrap) {
+//                 thanksWrap.style.display = 'none';
+//             }
+//             // Показываем popup-overlay
+//             if (popupOverlay) {
+//                 popupOverlay.style.display = 'flex'; // или другой стиль, который нужен
+//             }
 //         } else {
-//             // Если поле пустое, ничего не делаем или можно показать сообщение
-//             // например, alert('Пожалуйста, введите ваш email');
-            
-//         }
-//     });
-
-//     // Закрытие popup при клике на крестик
-
-//     // Закрытие popup при клике вне окна
-//     popup.addEventListener('click', function(e) {
-//         if (e.target === popup) {
-//             popup.style.display = 'none';
+//             // Можно оставить пустым или показывать сообщение
+//             // alert('Пожалуйста, введите ваш email');
 //         }
 //     });
 // });
