@@ -825,6 +825,7 @@ textarea:invalid {
   max-width: 430px;
   position: relative;
 }
+/*  */
 .popup-content::before {
   content: "";
   display: block;
